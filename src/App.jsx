@@ -48,14 +48,12 @@ function App() {
                 }}>获取值</button>
             </div>
             
-            <div>
-                <Modal 
-                    visible={momeVisible}
-                    title="标题bgfbf"
-                    close={handleClose}
-                    confirm={handleConfirm}
-                />
-            </div>
+            <Modal 
+                visible={momeVisible}
+                title="标题bgfbf"
+                close={handleClose}
+                confirm={handleConfirm}
+            />
         </div>
     );
 }

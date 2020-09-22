@@ -14,6 +14,7 @@
     background: #fff;
     border-radius: 8px;
     padding: 16px;
+    animation: slide .3s;
 }
 .modal-btn{
     display: flex;
@@ -21,4 +22,15 @@
 }
 .modal-btn >div{
     margin: 12px;
+}
+
+@keyframes slide {
+    0%{
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
