@@ -1,0 +1,7 @@
+
+.custom-input{
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid red;
+    outline: none;
+}
