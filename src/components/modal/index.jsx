@@ -1,9 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom';
+import {
+    useRecoilState,
+} from 'recoil';
+import {textState} from '../../store/atom'
 import './index.css';
 
 function Modal(props) {
     const {title, children, visible, close, confirm} = props
+    const [text, setText] = useRecoilState(textState);
     console.log('modal render')
     if (!visible) return null
     return ReactDOM.createPortal(
@@ -14,6 +19,7 @@ function Modal(props) {
         }}>
             <div className="modal-content">
                 <div>{title}</div>
+                {text}
                 {children}
                 <div className="modal-btn">
                     <div onClick={confirm}>确定</div>
