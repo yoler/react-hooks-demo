@@ -16,7 +16,7 @@ import Button from "./components/button/index";
 import useInputValue from "./hooks/useInputValue";
 import { textState, theme } from "./store/atom";
 
-import { useTranslation } from "react-i18next";
+import { useTranslation, Trans } from "react-i18next";
 
 
 function App() {
@@ -65,7 +65,7 @@ function App() {
     console.log(e)
   }
 
-  const { t, i18n } = useTranslation()
+  const { t, i18n } = useTranslation('page')
 
   
 
@@ -110,8 +110,14 @@ function App() {
           close={handleClose}
           confirm={handleConfirm}
         />
-        {t('Welcome to React')}
+        {/* {t('description.part1')} */}
+
+        <Trans i18nKey="userMessagesUnread" t={t} count={3}>
+        Hello <strong title={t('nameTitle')}>{{name: '发宏'}}</strong>, you have {{count: '3'}} unread message.
+        </Trans>
+
         <h2>{t('title', {name: '亢亢'})}</h2>
+
         <button onClick={() => i18n.changeLanguage('en')}>英文</button>
         <button onClick={() => i18n.changeLanguage('zh')}>中文</button>
       </div>
