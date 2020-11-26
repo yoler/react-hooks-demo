@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App.jsx';
@@ -6,13 +6,22 @@ import {
   RecoilRoot
 } from 'recoil';
 import * as serviceWorker from './serviceWorker';
+import './i18n';
+
+const Loader = () => (
+  <div className="App">
+    <div>loading...</div>
+  </div>
+);
 
 ReactDOM.render(
-  <React.StrictMode>
-    <RecoilRoot>
-      <App />
-    </RecoilRoot>
-  </React.StrictMode>,
+  <Suspense fallback={<Loader />}>
+    <React.StrictMode>
+      <RecoilRoot>
+        <App />
+      </RecoilRoot>
+    </React.StrictMode>
+  </Suspense>,
   document.getElementById('root')
 );
 

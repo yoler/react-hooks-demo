@@ -16,6 +16,9 @@ import Button from "./components/button/index";
 import useInputValue from "./hooks/useInputValue";
 import { textState, theme } from "./store/atom";
 
+import { useTranslation } from "react-i18next";
+
+
 function App() {
   const [visible, setVisible] = useState(false);
   const momeVisible = useMemo(() => visible, [visible]);
@@ -23,7 +26,7 @@ function App() {
 
   const [text, setText] = useRecoilState(textState);
 
-  
+
   const [themeObj, setThemeObj] = useRecoilState(theme);
 
   const handleClose = useCallback(() => {
@@ -58,7 +61,16 @@ function App() {
     })
   }
 
+  const handleClick = (e) => {
+    console.log(e)
+  }
+
+  const { t, i18n } = useTranslation()
+
+  
+
   return (
+    
     <ThemeProvider theme={themeObj}>
       <div className="App">
         <button type="button" onClick={() => setVisible(true)}>弹框</button>
@@ -71,7 +83,9 @@ function App() {
         <div>
           <Input {...name} />
           <Input {...name2} />
-          <Button />
+
+          <Button onClick={handleClick}>vdfv</Button>
+
           <button
             type="button"
             onClick={() => {
@@ -96,6 +110,10 @@ function App() {
           close={handleClose}
           confirm={handleConfirm}
         />
+        {t('Welcome to React')}
+        <h2>{t('title', {name: '亢亢'})}</h2>
+        <button onClick={() => i18n.changeLanguage('en')}>英文</button>
+        <button onClick={() => i18n.changeLanguage('zh')}>中文</button>
       </div>
     </ThemeProvider>
   );
