@@ -1,3 +1,17 @@
 .App {
   text-align: center;
 }
+.tag-box{
+    width: 300px;
+    margin: 30px auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.tag-item{
+  border: 1px solid #e5e5e5;
+  margin: 6px;
+  border-radius: 100px;
+  padding: 0 12px;
+}
